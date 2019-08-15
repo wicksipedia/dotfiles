@@ -1,7 +1,7 @@
 #
 # Include this file in your .gitconfig via the following command
 #
-#    git config --global include.path ~/.gitconfig.template
+#    git config --global include.path ~/dotfiles/git.gitconfig.template
 #
 
 [color]
@@ -11,7 +11,7 @@
         ui = true
 
 [include]
-        path = ~/git/.gitconfig.aliases
+        path = ~/dotfiles/git/.gitconfig.aliases
 
 [difftool]
         prompt = false
