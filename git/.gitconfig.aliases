@@ -16,6 +16,8 @@
     amend = commit -a --amend
     # Deletes all branches merged specified branch (or master if no branch is specified)
     bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+    # Deletes all branches not on remote anymore
+    bscrub = "git remote prune origin && git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
     # Switches to specified branch (or master if no branch is specified), runs git up, then runs bclean.
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
     # Lists all branches including remote branches
