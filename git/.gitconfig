@@ -3,23 +3,19 @@
 # [include] directive with the path to this file
 #
 # [include]
-#    path = ~/.gitconfig.aliases
+#    path = $pwd/.gitconfig
 #
 # If you don't have any existing includes, you can add this via the following command
 # 
-#   git config --global include.path ~/.gitconfig.aliases
+#   git config --global include.path $pwd/.gitconfig
 #
 
 [alias]
     abort = rebase --abort
     aliases = "!git config -l | grep alias | cut -c 7-"
     amend = commit -a --amend
-    # Deletes all branches merged specified branch (or master if no branch is specified)
-    bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
     # Deletes all branches not on remote anymore
-    bscrub = "!git remote prune origin && git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
-    # Switches to specified branch (or master if no branch is specified), runs git up, then runs bclean.
-    bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+    bclean = "!git remote prune origin && git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done"
     # Lists all branches including remote branches
     branches = branch -a
     browse = !git open
@@ -48,8 +44,6 @@
     lost = fsck --lost-found
     # A better git log.
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    # Moves a set of commits from the current branch to another
-    migrate = "!f(){ CURRENT=$(git symbolic-ref --short HEAD); git checkout -b $1 && git branch --force $CURRENT ${3-$CURRENT@{u}} && git rebase --onto ${2-master} $CURRENT; }; f"
     open = "!f(){ URL=$(git config remote.origin.url); open ${URL%.git}; }; f"
     pr = "!f(){ URL=$(git config remote.origin.url); open ${URL%.git}/compare/$(git rev-parse --abbrev-ref HEAD); }; f"
     publish = "!f() { git push origin $1 && git push drafts :$1 && git browse }; f"
@@ -71,3 +65,25 @@
     up = !git pull --rebase --prune $@ && git submodule update --init --recursive
     wip = commit -am "WIP"
     wipe = "!f() { rev=$(git rev-parse ${1-HEAD}); git add -A && git commit --allow-empty -qm 'WIPE SAVEPOINT' && git reset $rev --hard; }; f"
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to suppress warning message
+        default = simple
+
+[rerere]
+        enabled = true
+
+[pull]
+        rebase = true
+
+[rebase]
+        autostash = true
