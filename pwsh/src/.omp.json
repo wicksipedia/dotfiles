@@ -1,0 +1,123 @@
+{
+  "final_space": true,
+  "osc99": false,
+  "console_title": true,
+  "console_title_style": "folder",
+  "console_title_template": "",
+  "terminal_background": "",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "horizontal_offset": 0,
+      "vertical_offset": 0,
+      "segments": [
+        {
+          "type": "path",
+          "style": "diamond",
+          "powerline_symbol": "",
+          "invert_powerline": false,
+          "foreground": "#ffffff",
+          "foreground_templates": null,
+          "background": "#ff479c",
+          "background_templates": null,
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+						"enable_hyperlink": true,
+            "prefix": "  ",
+						"style": "folder",
+						"mapped_locations": [
+						]
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "invert_powerline": false,
+          "foreground": "#193549",
+          "foreground_templates": null,
+          "background": "#fffb38",
+          "background_templates": null,
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "display_stash_count": true,
+            "display_upstream_icon": true
+          }
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "invert_powerline": false,
+          "foreground": "#ffffff",
+          "foreground_templates": null,
+          "background": "#6CA35E",
+          "background_templates": null,
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "prefix": " \uE718 "
+          }
+        },
+        {
+          "type": "dotnet",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#000000",
+          "background": "#00ffff",
+          "properties": {
+            "prefix": " \uE77F "
+          }
+        },
+				{
+					"type": "az",
+					"style": "powerline",
+					"powerline_symbol": "\uE0B0",
+					"foreground": "#000000",
+					"background": "#9ec3f0",
+					"properties": {
+						"display_id": true,
+						"display_name": true,
+						"info_separator": " @ ",
+						"prefix": " \uFD03 "
+					}
+				},
+        {
+          "type": "root",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "invert_powerline": false,
+          "foreground": "#ffffff",
+          "foreground_templates": null,
+          "background": "#ffff66",
+          "background_templates": null,
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": null
+        },
+        {
+          "type": "exit",
+          "style": "diamond",
+          "powerline_symbol": "",
+          "invert_powerline": false,
+          "foreground": "#ffffff",
+          "foreground_templates": null,
+          "background": "#2e9599",
+          "background_templates": null,
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "always_enabled": true,
+            "color_background": true,
+            "display_exit_code": false,
+            "error_color": "#f1184c",
+            "prefix": "\u003ctransparent\u003e\u003c/\u003e \ue23a"
+          }
+        }
+      ]
+    }
+  ]
+}
