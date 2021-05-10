@@ -19,10 +19,6 @@ pwsh -Command {
 }
 
 # replace notepad with notepadplusplus
-Write-Host  "Notepad++: replacing notepad"
-$nppPath = $(which notepad++) -replace "~", $env:USERPROFILE
-sudo New-ItemProperty `
-    -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" `
-    -Name "Debugger" `
-    -Value "`"$nppPath`" -notepadStyleCmdline -z" `
-    -PropertyType String -Force | Out-Null
+Write-Host "Windows Terminal: Setting Nerd Font"
+Install-Module -Name MSTerminalSettings -AllowPrerelease
+Get-MSTerminalProfile | Set-MSTerminalProfile -FontFace "CaskaydiaCove Nerd Font"
