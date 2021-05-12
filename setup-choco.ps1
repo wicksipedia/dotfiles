@@ -12,6 +12,8 @@ if ((Get-Command -Name choco.exe -ErrorAction SilentlyContinue) -eq $null) {
 Write-Host  "Scoop: intstalling tools"
 & choco install `
     7zip `
+    autohotkey.install `
+    cascadia-code-nerd-font `
     chocolateygui `
     docker-desktop `
     eartrumpet `
@@ -20,14 +22,20 @@ Write-Host  "Scoop: intstalling tools"
     insomnia-rest-api-client `
     oh-my-posh `
     linqpad `
+    logitech-camera-settings `
+    logitech-options `
     microsoft-windows-terminal `
+    microsoft-teams `
     nodejs-lts `
     notepadplusplus `
     nswagstudio `
+    obs-studio `
+    obs-virtualcam `
     paint.net `
     postman `
     powertoys `
     pwsh `
+    spotify `
     sudo `
     sysinternals `
     vscode `
@@ -36,13 +44,17 @@ Write-Host  "Scoop: intstalling tools"
 
 if (Read-Host "Install paid tools: (Y/N)" -eq 'y') {
     & choco install `
+        1password `
         camtasia `
+        office365proplus `
         snagit `
+        visualstudio2019enterprise `
         -y
 }
 
-# add fonts
-Write-Host  "Scoop: intstalling fonts"
-& choco install `
-    cascadia-code-nerd-font `
-    -y
+if (Read-Host "Install gaming apps: (Y/N)" -eq 'y') {
+    & choco install `
+        epicgameslauncher `
+        steam-client `
+        -y
+}
