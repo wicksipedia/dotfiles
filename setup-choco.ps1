@@ -13,6 +13,7 @@ Write-Host  "Scoop: intstalling tools"
 & choco install `
     7zip `
     autohotkey.install `
+    azure-cli `
     cascadia-code-nerd-font `
     chocolateygui `
     docker-desktop `
