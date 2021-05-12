@@ -9,7 +9,7 @@ if ((Get-Command -Name choco.exe -ErrorAction SilentlyContinue) -eq $null) {
 }
 
 # add tools
-Write-Host  "Scoop: intstalling tools"
+Write-Host  "Intstalling tools"
 & choco install `
     7zip `
     autohotkey.install `
@@ -36,7 +36,6 @@ Write-Host  "Scoop: intstalling tools"
     postman `
     powertoys `
     pwsh `
-    spotify `
     sudo `
     sysinternals `
     vscode `
