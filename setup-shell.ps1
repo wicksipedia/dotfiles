@@ -9,13 +9,11 @@ Install-Module `
 
 Write-Host  "Windows Terminal: Updating PWSH profile"
 $runCmd = ". `"$pwd\\pwsh\\run.ps1`"";
-pwsh -Command {
-    If((Select-String -Path $PROFILE -Pattern $runCmd -SimpleMatch).length -eq 0)
-    {
-        Write-Host 'Adding bootstrap script to $PROFILE'
-        Add-Content -Path $PROFILE -Value $([Environment]::NewLine) -NoNewline
-        Add-Content -Path $PROFILE -Value $runCmd
-    }
+If((Select-String -Path $PROFILE -Pattern $runCmd -SimpleMatch).Length -eq 0)
+{
+    Write-Host 'Adding bootstrap script to $PROFILE'
+    Add-Content -Path $PROFILE -Value $([Environment]::NewLine) -NoNewline
+    Add-Content -Path $PROFILE -Value $runCmd
 }
 
 # replace notepad with notepadplusplus
