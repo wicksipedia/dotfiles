@@ -1,0 +1,15 @@
+{
+  "toggle_window_visibility" : {
+    "key" : "W",
+    "modifiers" : [
+      "control",
+      "shift"
+    ]
+  },
+  "toggle_ui" : {
+    "modifiers" : [
+      "command"
+    ],
+    "key" : "."
+  }
+}
